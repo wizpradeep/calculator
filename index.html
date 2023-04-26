@@ -1,0 +1,259 @@
+﻿<!-- made by pradeep -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <title>Calculator By Pradeep</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        margin: 0%;
+        padding: 0%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        text-decoration: none;
+        list-style: none;
+        user-select: none;
+      }
+      body {
+        background-color: blueviolet;
+      }
+      ::placeholder {
+        color: lightblue;
+        font-weight: 100;
+        font-size: 20px;
+        text-transform: uppercase;
+      }
+
+      .main {
+        background-color: white;
+        border-radius: 20px;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        width: 50%;
+        margin: 20px auto;
+        box-shadow: 0px 0px 20px;
+        padding: 40px;
+      }
+      .output {
+        width: 60%;
+        margin: auto;
+      }
+      #result {
+        overflow: hidden;
+        width: 100%;
+        height: 12vh;
+        padding: 10px;
+        margin: auto;
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 25px;
+      }
+      .calculator_body {
+        display: flex;
+        gap: 10px;
+        width: 60%;
+        margin: auto;
+        border-radius: 20px;
+        /* background-color: black; */
+        color: white;
+        text-align: center;
+      }
+
+      .calculator_left {
+        display: flex;
+        gap: 10px;
+        margin: auto;
+        flex-direction: column;
+        width: 100%;
+        background-color: black;
+        color: white;
+        border-radius: 20px;
+        padding: 20px 0px;
+      }
+      .row_a,
+      .row_b,
+      .row_c,
+      .row_d,
+      .row_e,
+      .row_f {
+        display: flex;
+        gap: 50px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      .number {
+        text-align: center;
+        background-color: white;
+        padding: 5px;
+        font-size: 18px;
+        color: black;
+        border-radius: 5px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .calculator_right {
+        display: flex;
+        gap: 27px;
+        margin: auto;
+        flex-direction: column;
+        width: 19%;
+        padding: 20px 0px;
+        background-color: black;
+        color: white;
+        border-radius: 20px;
+
+        padding: 20px 0px;
+      }
+      .pra {
+        text-align: center;
+        padding: 5px;
+        font-size: 18px;
+        color: white;
+        background-color: black;
+        border-radius: 5px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="output">
+        <input type="text" name="result" id="result" readonly />
+      </div>
+      <div class="calculator_body">
+        <div class="calculator_left">
+          <div class="row_a">
+            <p class="number" onclick="click_AC()" id="a">AC</p>
+            <p class="number" onclick="click_c()" id="b">C</p>
+            <p class="number" class="operator" onclick="click_add()">+</p>
+          </div>
+
+          <div class="row_b">
+            <p class="number" class="operator" onclick="click_div()" id="d">
+              /
+            </p>
+            <p class="number" class="operator" onclick="click_mul()" id="d">
+              *
+            </p>
+            <p class="number" class="operator" onclick="click_sub()" id="d">
+              -
+            </p>
+          </div>
+
+          <div class="row_c">
+            <p class="number" onclick="click_7()">7</p>
+            <p class="number" onclick="click_8()">8</p>
+            <p class="number" onclick="click_9()">9</p>
+          </div>
+
+          <div class="row_d">
+            <p class="number" onclick="click_4()" id="a">4</p>
+            <p class="number" onclick="click_5()" id="b">5</p>
+            <p class="number" onclick="click_6()" id="c">6</p>
+          </div>
+          <div class="row_e">
+            <p class="number" onclick="click_1()" id="a">1</p>
+            <p class="number" onclick="click_2()" id="b">2</p>
+            <p class="number" onclick="click_3()" id="c">3</p>
+          </div>
+          <div class="row_f">
+            <p class="number" onclick="click_00()" id="b">.</p>
+            <p class="number" onclick="click_0()" id="a">0</p>
+            <p class="number" onclick="click_eql()">=</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const result = document.getElementById("result");
+      const resultValue = result.value;
+
+      function click_1() {
+        document.getElementById("result").value += "1";
+      }
+      function click_2() {
+        document.getElementById("result").value += "2";
+      }
+      function click_3() {
+        document.getElementById("result").value += "3";
+      }
+      function click_4() {
+        document.getElementById("result").value += "4";
+      }
+      function click_5() {
+        document.getElementById("result").value += "5";
+      }
+
+      function click_6() {
+        document.getElementById("result").value += "6";
+      }
+      function click_7() {
+        document.getElementById("result").value += "7";
+      }
+      function click_8() {
+        document.getElementById("result").value += "8";
+      }
+      function click_9() {
+        document.getElementById("result").value += "9";
+      }
+      function click_0() {
+        document.getElementById("result").value += "0";
+      }
+      function click_00() {
+        document.getElementById("result").value += ".";
+      }
+      function click_AC() {
+        document.getElementById("result").value = "";
+      }
+      function click_c() {
+        document.getElementById("result").value = document
+          .getElementById("result")
+          .value.slice(0, -1);
+      }
+      function click_div() {
+        document.getElementById("result").value += "/";
+      }
+      function click_add() {
+        document.getElementById("result").value += "+";
+      }
+      function click_sub() {
+        document.getElementById("result").value += "-";
+      }
+      function click_mul() {
+        document.getElementById("result").value += "*";
+      }
+
+      // =========creating result =============
+
+      //========================================================
+      function click_eql() {
+        document.getElementById("result").value = eval(
+          document.getElementById("result").value
+        );
+      }
+
+      //========================================================
+    </script>
+  </body>
+</html>
